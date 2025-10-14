@@ -17,13 +17,16 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2" data-testid="logo-link">
-            <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">TS</span>
+          <Link to="/" className="flex items-center space-x-3" data-testid="logo-link">
+            <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-pink-600 rounded-lg flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-2xl">MS</span>
             </div>
-            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-pink-600">
-              TrendyShirts
-            </h1>
+            <div>
+              <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-pink-600 leading-tight">
+                MS TEX
+              </h1>
+              <p className="text-xs text-gray-600">Premium Knitted Clothing</p>
+            </div>
           </Link>
 
           {/* Navigation */}
