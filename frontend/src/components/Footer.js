@@ -9,10 +9,13 @@ const Footer = () => {
           {/* About */}
           <div>
             <h3 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
-              TrendyShirts
+              MS TEX
             </h3>
-            <p className="text-gray-400">
-              Your destination for stylish and comfortable T-shirts for men and women.
+            <p className="text-gray-400 mb-3">
+              Premium knitted clothing from Tiruppur, Tamil Nadu.
+            </p>
+            <p className="text-gray-500 text-sm">
+              Your destination for high-quality T-shirts and knitted wear.
             </p>
           </div>
 
