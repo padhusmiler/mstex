@@ -33,10 +33,15 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="text-lg font-bold mb-4">Contact Us</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>Email: support@trendyshirts.com</li>
-              <li>Phone: +1 (555) 123-4567</li>
-              <li>Address: 123 Fashion St, NY</li>
+            <ul className="space-y-2 text-gray-400 text-sm">
+              <li>Email: info@mstex.com</li>
+              <li>Phone: +91 421-1234567</li>
+              <li className="leading-relaxed">
+                Address: 17/1, Karuparayan Kovil Veethi,<br />
+                Velampalayam, Nearby: Oriflame,<br />
+                Anuparpalayam, Tiruppur,<br />
+                Tamil Nadu - 641652
+              </li>
             </ul>
           </div>
 
