@@ -66,7 +66,8 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 TrendyShirts. All rights reserved.</p>
+          <p>&copy; 2025 MS TEX - Premium Knitted Clothing. All rights reserved.</p>
+          <p className="text-xs mt-2">Tiruppur, Tamil Nadu, India</p>
         </div>
       </div>
     </footer>
