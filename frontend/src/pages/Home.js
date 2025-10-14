@@ -103,10 +103,13 @@ const Home = () => {
       <section className="relative bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 text-white py-20" data-testid="hero-section">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-6xl md:text-7xl font-bold mb-6 fade-in">
-            ELEVATE YOUR STYLE
+            MS TEX PREMIUM KNITS
           </h1>
-          <p className="text-xl md:text-2xl mb-8 fade-in">
+          <p className="text-xl md:text-2xl mb-4 fade-in">
             Premium T-Shirts for Men & Women
+          </p>
+          <p className="text-lg mb-8 fade-in opacity-90">
+            Finest Quality Knitted Clothing from Tiruppur, Tamil Nadu
           </p>
           <div className="flex flex-wrap justify-center gap-4 fade-in">
             <Button
