@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
           }}
         />
         <div className="absolute top-3 right-3 bg-orange-600 text-white px-3 py-1 rounded-full font-bold text-sm">
-          ${product.price}
+          ₹{product.price}
         </div>
         {product.stock < 10 && product.stock > 0 && (
           <div className="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 rounded-full font-bold text-xs">
