@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
 
 const ProductCard = ({ product }) => {
-  const imageUrl = product.images && product.images.length > 0
-    ? `${process.env.REACT_APP_BACKEND_URL}${product.images[0].url}`
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
+  const imageUrl = product.images && product.images.length > 0 && product.images[0].url
+    ? `${BACKEND_URL}${product.images[0].url}`
     : 'https://via.placeholder.com/300x400?text=No+Image';
+
+  console.log('ProductCard image URL:', imageUrl);
 
   return (
     <Link
@@ -19,7 +22,11 @@ const ProductCard = ({ product }) => {
           alt={product.name}
           className="w-full h-full object-cover"
           onError={(e) => {
+            console.error('Image failed to load:', imageUrl);
             e.target.src = 'https://via.placeholder.com/300x400?text=No+Image';
+          }}
+          onLoad={() => {
+            console.log('Image loaded successfully:', imageUrl);
           }}
         />
         <div className="absolute top-3 right-3 bg-orange-600 text-white px-3 py-1 rounded-full font-bold text-sm">
