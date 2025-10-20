@@ -385,7 +385,7 @@ const AdminProducts = () => {
                   </div>
                 )}
                 <div className="absolute top-2 right-2 bg-orange-600 text-white px-3 py-1 rounded-full font-bold text-sm">
-                  ${product.price}
+                  ₹{product.price}
                 </div>
               </div>
 
