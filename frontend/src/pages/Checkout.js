@@ -151,7 +151,7 @@ const Checkout = () => {
                   <span>
                     Product {item.product_id.substring(0, 8)} ({item.size}, {item.color}) x {item.quantity}
                   </span>
-                  <span className="font-semibold">${(item.price * item.quantity).toFixed(2)}</span>
+                  <span className="font-semibold">₹{(item.price * item.quantity).toFixed(2)}</span>
                 </div>
               ))}
             </div>
@@ -159,7 +159,7 @@ const Checkout = () => {
             <div className="border-t pt-4 space-y-2">
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
-                <span data-testid="checkout-subtotal">${getTotalPrice()}</span>
+                <span data-testid="checkout-subtotal">₹{getTotalPrice()}</span>
               </div>
               <div className="flex justify-between text-gray-600">
                 <span>Shipping</span>
@@ -167,7 +167,7 @@ const Checkout = () => {
               </div>
               <div className="flex justify-between text-2xl font-bold pt-2">
                 <span>Total</span>
-                <span className="text-orange-600" data-testid="checkout-total">${getTotalPrice()}</span>
+                <span className="text-orange-600" data-testid="checkout-total">₹{getTotalPrice()}</span>
               </div>
             </div>
           </div>
