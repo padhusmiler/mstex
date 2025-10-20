@@ -75,9 +75,12 @@ const ProductDetail = () => {
     );
   }
 
-  const imageUrl = product.images && product.images.length > 0
-    ? `${process.env.REACT_APP_BACKEND_URL}${product.images[selectedImage].url}`
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
+  const imageUrl = product.images && product.images.length > 0 && product.images[selectedImage]
+    ? `${BACKEND_URL}${product.images[selectedImage].url}`
     : 'https://via.placeholder.com/600x800?text=No+Image';
+
+  console.log('ProductDetail image URL:', imageUrl);
 
   return (
     <div className="min-h-screen py-12" data-testid="product-detail-page">
@@ -92,7 +95,11 @@ const ProductDetail = () => {
                 alt={product.name}
                 className="w-full h-full object-cover"
                 onError={(e) => {
+                  console.error('Product detail image failed:', imageUrl);
                   e.target.src = 'https://via.placeholder.com/600x800?text=No+Image';
+                }}
+                onLoad={() => {
+                  console.log('Product detail image loaded:', imageUrl);
                 }}
                 data-testid="main-product-image"
               />
