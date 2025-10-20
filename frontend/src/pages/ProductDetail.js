@@ -215,7 +215,7 @@ const ProductDetail = () => {
               data-testid="add-to-cart-button"
             >
               <ShoppingCart className="mr-2" size={24} />
-              Add to Cart - ${(product.price * quantity).toFixed(2)}
+              Add to Cart - ₹{(product.price * quantity).toFixed(2)}
             </Button>
 
             {/* Features */}
