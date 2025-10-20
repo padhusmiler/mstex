@@ -549,7 +549,7 @@ async def create_category(token: str, name: str, type: str):
     
     return category
 
-# ==================== IMAGE SERVING ROUTE ====================
+# ==================== IMAGE SERVING & UPLOAD ROUTES ====================
 from fastapi.responses import FileResponse
 
 @api_router.get("/images/{filename}")
@@ -559,6 +559,53 @@ async def serve_image(filename: str):
     if not file_path.exists():
         raise HTTPException(status_code=404, detail="Image not found")
     return FileResponse(file_path)
+
+@api_router.post("/admin/upload-image")
+async def upload_image(token: str, file: UploadFile = File(...)):
+    """Upload product image - Admin only"""
+    user = await get_current_user(token)
+    if user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    # Validate file type
+    if not file.content_type.startswith('image/'):
+        raise HTTPException(status_code=400, detail="File must be an image")
+    
+    # Read and validate image
+    contents = await file.read()
+    try:
+        img = Image.open(io.BytesIO(contents))
+        width, height = img.size
+        
+        # Optional: Resize if too large
+        max_size = 1200
+        if width > max_size or height > max_size:
+            img.thumbnail((max_size, max_size), Image.Resampling.LANCZOS)
+            # Save resized image
+            output = io.BytesIO()
+            img.save(output, format='JPEG', quality=85)
+            contents = output.getvalue()
+            width, height = img.size
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid image file: {str(e)}")
+    
+    # Generate unique filename
+    file_ext = file.filename.split('.')[-1] if '.' in file.filename else 'jpg'
+    filename = f"{uuid.uuid4()}.{file_ext}"
+    file_path = UPLOAD_DIR / filename
+    
+    # Save image
+    with open(file_path, "wb") as f:
+        f.write(contents)
+    
+    # Return image URL and metadata
+    return {
+        "url": f"/api/images/{filename}",
+        "filename": filename,
+        "size": len(contents),
+        "width": width,
+        "height": height
+    }
 
 # Include the router in the main app
 app.include_router(api_router)
