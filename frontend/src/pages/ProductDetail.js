@@ -120,10 +120,11 @@ const ProductDetail = () => {
                     data-testid={`thumbnail-${idx}`}
                   >
                     <img
-                      src={`${process.env.REACT_APP_BACKEND_URL}${img.url}`}
+                      src={`${BACKEND_URL}${img.url}`}
                       alt={`${product.name} ${idx + 1}`}
                       className="w-full h-full object-cover"
                       onError={(e) => {
+                        console.error('Thumbnail failed:', `${BACKEND_URL}${img.url}`);
                         e.target.src = 'https://via.placeholder.com/150?text=No+Image';
                       }}
                     />
