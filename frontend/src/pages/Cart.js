@@ -112,7 +112,7 @@ const Cart = () => {
                   <div className="text-sm text-gray-600 space-y-1">
                     <p>Size: <span className="font-semibold">{item.size}</span></p>
                     <p>Color: <span className="font-semibold">{item.color}</span></p>
-                    <p className="text-lg font-bold text-orange-600">${item.price}</p>
+                    <p className="text-lg font-bold text-orange-600">₹{item.price}</p>
                   </div>
                 </div>
 
