@@ -171,7 +171,7 @@ const AdminOrders = () => {
                     <div className="mt-4 flex items-center justify-between">
                       <span className="text-sm text-gray-600">User ID: {order.user_id.substring(0, 12)}</span>
                       <span className="text-2xl font-bold text-orange-600" data-testid={`admin-order-total-${order.id}`}>
-                        ${order.total_amount.toFixed(2)}
+                        ₹{order.total_amount.toFixed(2)}
                       </span>
                     </div>
                   </div>
