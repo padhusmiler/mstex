@@ -179,7 +179,7 @@ const Checkout = () => {
             className="w-full bg-gradient-to-r from-orange-500 to-pink-600 text-white font-bold py-8 rounded-full text-xl hover:shadow-2xl"
             data-testid="place-order-button"
           >
-            {processing ? 'Processing Order...' : `Place Order - $${getTotalPrice()}`}
+            {processing ? 'Processing Order...' : `Place Order - ₹${getTotalPrice()}`}
           </Button>
         </form>
       </div>
