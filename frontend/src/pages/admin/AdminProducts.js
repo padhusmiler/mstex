@@ -26,23 +26,9 @@ const AdminProducts = () => {
     stock: '100',
     imageUrls: []
   });
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [uploading, setUploading] = useState(false);
   const { token } = useContext(AuthContext);
-
-  // Pre-defined T-shirt images from vision expert
-  const tshirtImages = [
-    'https://images.unsplash.com/photo-1574180566232-aaad1b5b8450',
-    'https://images.unsplash.com/photo-1516442719524-a603408c90cb',
-    'https://images.unsplash.com/photo-1516082669438-2d2bb5082626',
-    'https://images.unsplash.com/photo-1516177609387-9bad55a45194',
-    'https://images.unsplash.com/photo-1509003124559-eb6678fe452b',
-    'https://images.unsplash.com/photo-1589408871633-685343fb36b2',
-    'https://images.unsplash.com/photo-1564430362299-113976f94001',
-    'https://images.unsplash.com/photo-1533793735164-12065733b215',
-    'https://images.pexels.com/photos/34253791/pexels-photo-34253791.jpeg',
-    'https://images.pexels.com/photos/34277461/pexels-photo-34277461.jpeg',
-    'https://images.pexels.com/photos/34277458/pexels-photo-34277458.jpeg',
-    'https://images.pexels.com/photos/34286724/pexels-photo-34286724.jpeg'
-  ];
 
   const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
   const colorOptions = ['Black', 'White', 'Red', 'Blue', 'Green', 'Yellow', 'Pink', 'Gray', 'Navy', 'Orange'];
