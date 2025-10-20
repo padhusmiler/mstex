@@ -74,6 +74,55 @@ const AdminProducts = () => {
     setFormData({ ...formData, imageUrls });
   };
 
+  const handleImageUpload = async (e) => {
+    const files = Array.from(e.target.files);
+    if (files.length === 0) return;
+
+    setUploading(true);
+    
+    try {
+      const uploadedUrls = [];
+      
+      for (const file of files) {
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        // Upload to backend
+        const response = await axios.post(
+          `${API}/admin/upload-image?token=${token}`,
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }
+        );
+        
+        uploadedUrls.push(response.data.url);
+      }
+      
+      // Add uploaded URLs to form
+      setFormData(prev => ({
+        ...prev,
+        imageUrls: [...prev.imageUrls, ...uploadedUrls]
+      }));
+      
+      toast.success(`${files.length} image(s) uploaded successfully!`);
+    } catch (error) {
+      console.error('Upload error:', error);
+      toast.error('Failed to upload images');
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const removeUploadedImage = (urlToRemove) => {
+    setFormData(prev => ({
+      ...prev,
+      imageUrls: prev.imageUrls.filter(url => url !== urlToRemove)
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
