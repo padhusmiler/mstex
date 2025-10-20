@@ -366,29 +366,70 @@ const AdminProducts = () => {
                 </div>
 
                 <div>
-                  <Label>Product Images (Select up to 4)</Label>
-                  <div className="grid grid-cols-4 gap-3 mt-2">
-                    {tshirtImages.map((url, idx) => (
-                      <button
-                        key={idx}
-                        type="button"
-                        onClick={() => toggleImageUrl(url)}
-                        className={`relative aspect-square rounded-lg overflow-hidden border-4 ${
-                          formData.imageUrls.includes(url)
-                            ? 'border-orange-600'
-                            : 'border-gray-200'
-                        }`}
-                        data-testid={`image-option-${idx}`}
-                      >
-                        <img src={url} alt={`T-shirt ${idx + 1}`} className="w-full h-full object-cover" />
-                        {formData.imageUrls.includes(url) && (
-                          <div className="absolute inset-0 bg-orange-600 bg-opacity-30 flex items-center justify-center">
-                            <div className="bg-white rounded-full p-2">✓</div>
-                          </div>
-                        )}
-                      </button>
-                    ))}
+                  <Label>Product Images</Label>
+                  
+                  {/* Upload Button */}
+                  <div className="mt-3 mb-4">
+                    <input
+                      type="file"
+                      id="image-upload"
+                      multiple
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="hidden"
+                    />
+                    <label
+                      htmlFor="image-upload"
+                      className={`inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg cursor-pointer hover:bg-blue-700 ${
+                        uploading ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                    >
+                      <Upload size={20} className="mr-2" />
+                      {uploading ? 'Uploading...' : 'Upload Images from Computer'}
+                    </label>
+                    <p className="text-xs text-gray-500 mt-2">
+                      You can upload multiple images at once. Supported: JPG, PNG, JPEG
+                    </p>
                   </div>
+
+                  {/* Display Uploaded Images */}
+                  {formData.imageUrls.length > 0 && (
+                    <div className="grid grid-cols-4 gap-3 mt-4">
+                      {formData.imageUrls.map((url, idx) => (
+                        <div
+                          key={idx}
+                          className="relative aspect-square rounded-lg overflow-hidden border-2 border-green-500"
+                        >
+                          <img 
+                            src={`${process.env.REACT_APP_BACKEND_URL}${url}`} 
+                            alt={`Product ${idx + 1}`} 
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.target.src = 'https://via.placeholder.com/150?text=Image';
+                            }}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => removeUploadedImage(url)}
+                            className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 hover:bg-red-700"
+                          >
+                            <Trash2 size={14} />
+                          </button>
+                          <div className="absolute bottom-0 left-0 right-0 bg-green-600 bg-opacity-90 text-white text-xs p-1 text-center">
+                            Uploaded ✓
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {formData.imageUrls.length === 0 && (
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center text-gray-500">
+                      <Upload size={40} className="mx-auto mb-2 opacity-50" />
+                      <p>No images uploaded yet</p>
+                      <p className="text-xs">Click "Upload Images" button above</p>
+                    </div>
+                  )}
                 </div>
 
                 <Button
