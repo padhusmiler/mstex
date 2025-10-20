@@ -38,8 +38,14 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 # Create the main app
 app = FastAPI()
 
-# Mount static files
-app.mount("/uploads", StaticFiles(directory=str(ROOT_DIR / "uploads")), name="uploads")
+# Add CORS middleware FIRST
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
