@@ -19,8 +19,8 @@ db = client[os.environ['DB_NAME']]
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-# Local image paths (downloaded images)
-LOCAL_IMAGES = [f"/uploads/products/tshirt_{i}.jpg" for i in range(1, 13)]
+# Local image paths (via API route)
+LOCAL_IMAGES = [f"/api/images/tshirt_{i}.jpg" for i in range(1, 13)]
 
 # Product templates for variety
 PRODUCT_NAMES = [
