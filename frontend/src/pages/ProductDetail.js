@@ -133,7 +133,7 @@ const ProductDetail = () => {
                 {product.category === 'men' ? "Men's Collection" : "Women's Collection"}
               </span>
               <h1 className="text-4xl md:text-5xl font-bold mb-4" data-testid="product-name">{product.name}</h1>
-              <p className="text-3xl font-bold text-orange-600" data-testid="product-price">${product.price}</p>
+              <p className="text-3xl font-bold text-orange-600" data-testid="product-price">₹{product.price}</p>
             </div>
 
             <p className="text-gray-700 text-lg leading-relaxed" data-testid="product-description">
