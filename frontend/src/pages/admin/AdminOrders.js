@@ -155,7 +155,7 @@ const AdminOrders = () => {
                             <span>
                               {item.product_name} ({item.size}, {item.color}) x {item.quantity}
                             </span>
-                            <span className="font-semibold">${(item.price * item.quantity).toFixed(2)}</span>
+                            <span className="font-semibold">₹{(item.price * item.quantity).toFixed(2)}</span>
                           </div>
                         ))}
                       </div>
