@@ -89,7 +89,7 @@ const AdminDashboard = () => {
           <StatCard
             icon={<DollarSign size={32} className="text-orange-600" />}
             title="Total Revenue"
-            value={`$${stats.totalRevenue.toFixed(2)}`}
+            value={`₹${stats.totalRevenue.toFixed(2)}`}
             color="bg-orange-100"
             link="/admin/orders"
           />
