@@ -155,7 +155,7 @@ const Cart = () => {
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between text-gray-600">
                   <span>Subtotal ({cart.items.length} items)</span>
-                  <span data-testid="subtotal">${getTotalPrice()}</span>
+                  <span data-testid="subtotal">₹{getTotalPrice()}</span>
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Shipping</span>
@@ -163,7 +163,7 @@ const Cart = () => {
                 </div>
                 <div className="border-t pt-4 flex justify-between text-xl font-bold">
                   <span>Total</span>
-                  <span className="text-orange-600" data-testid="total-price">${getTotalPrice()}</span>
+                  <span className="text-orange-600" data-testid="total-price">₹{getTotalPrice()}</span>
                 </div>
               </div>
 
