@@ -58,12 +58,12 @@ A complete, production-ready e-commerce website for premium T-shirts and knitted
 
 ### Admin Access
 - **URL**: `/admin/login`
-- **Email**: `admin@trendyshirts.com`
+- **Email**: `admin@mstex.com`
 - **Password**: `admin123`
 
-### Sample User
+### Sample Customer
 - **URL**: `/login`
-- **Email**: `user@example.com`
+- **Email**: `customer@example.com`
 - **Password**: `password123`
 
 ## 📁 Project Structure
