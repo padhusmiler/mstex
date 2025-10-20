@@ -18,7 +18,17 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3" data-testid="logo-link">
-            <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-pink-600 rounded-lg flex items-center justify-center shadow-lg">
+            <img 
+              src="/mstex-logo.png" 
+              alt="MS TEX" 
+              className="h-14 w-auto"
+              onError={(e) => {
+                // Fallback if logo fails to load
+                e.target.style.display = 'none';
+                e.target.nextElementSibling.style.display = 'block';
+              }}
+            />
+            <div style={{display: 'none'}} className="w-14 h-14 bg-gradient-to-br from-orange-500 to-pink-600 rounded-lg flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-2xl">MS</span>
             </div>
             <div>
