@@ -8,8 +8,7 @@ import { Textarea } from '../../components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../../components/ui/dialog';
 import { Plus, Edit, Trash2, Upload } from 'lucide-react';
-import { toast } from 'sonner';
-import { Toaster } from '../../components/ui/sonner';
+import { toast, Toaster } from 'sonner';
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
