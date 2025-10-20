@@ -549,6 +549,17 @@ async def create_category(token: str, name: str, type: str):
     
     return category
 
+# ==================== IMAGE SERVING ROUTE ====================
+from fastapi.responses import FileResponse
+
+@api_router.get("/images/{filename}")
+async def serve_image(filename: str):
+    """Serve product images through API route"""
+    file_path = UPLOAD_DIR / filename
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Image not found")
+    return FileResponse(file_path)
+
 # Include the router in the main app
 app.include_router(api_router)
 
