@@ -146,10 +146,17 @@ A complete, production-ready e-commerce website for premium T-shirts and knitted
 ## 📊 Sample Data
 
 The database is pre-seeded with:
-- 2 users (1 admin, 1 regular user)
-- 8 sample products (4 men's, 4 women's T-shirts)
-- Products include various sizes, colors, and price points
-- High-quality T-shirt images from Unsplash and Pexels
+- 2 users (1 admin, 1 customer)
+- **55 products** (Men's & Women's T-shirts and knitted wear)
+- Products include various sizes, colors, and price points (₹15 - ₹60)
+- 12 high-quality T-shirt images stored locally
+- All prices displayed in **Indian Rupees (₹)**
+
+### Company Information
+- **Name**: MS TEX - Premium Knitted Clothing
+- **Location**: Tiruppur, Tamil Nadu, India
+- **Address**: 17/1, Karuparayan Kovil Veethi, Velampalayam, Nearby: Oriflame, Anuparpalayam, Tiruppur, Tamil Nadu - 641652
+- **Specialization**: Premium quality knitted T-shirts and clothing
 
 ## 🔄 Running the Application
 
