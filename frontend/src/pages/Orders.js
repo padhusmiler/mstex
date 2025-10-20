@@ -102,7 +102,7 @@ const Orders = () => {
                     {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                   </span>
                   <span className="text-2xl font-bold text-orange-600" data-testid={`order-total-${order.id}`}>
-                    ${order.total_amount.toFixed(2)}
+                    ₹{order.total_amount.toFixed(2)}
                   </span>
                 </div>
               </div>
