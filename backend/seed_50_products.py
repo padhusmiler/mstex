@@ -125,7 +125,8 @@ async def seed_database():
     # Generate 50+ products
     for i in range(55):
         category = "men" if i % 2 == 0 else "women"
-        base_price = random.randint(15, 60)
+        # Indian prices in Rupees (₹299 to ₹1999)
+        base_price = random.randint(299, 1999)
         
         # Select random name and description
         name_template = random.choice(PRODUCT_NAMES)
@@ -159,7 +160,7 @@ async def seed_database():
             "name": name,
             "description": description,
             "category": category,
-            "price": float(base_price + random.randint(0, 9) + 0.99),
+            "price": float(base_price),
             "sizes": sorted(sizes, key=lambda x: SIZES.index(x)),
             "colors": colors,
             "stock": random.randint(50, 200),
