@@ -1,6 +1,6 @@
-# TrendyShirts - E-Commerce T-Shirt Store
+# MS TEX - Premium Knitted Clothing E-Commerce
 
-A complete, production-ready e-commerce website for men's and women's T-shirts built with React, FastAPI, and MongoDB.
+A complete, production-ready e-commerce website for premium T-shirts and knitted clothing from Tiruppur, Tamil Nadu. Built with React, FastAPI, and MongoDB.
 
 ## 🎨 Features
 
